@@ -2,6 +2,7 @@ from flask import Flask,request
 from flask_restful import Api,Resource
 from security import auth,identity
 from flask_jwt import JWT,jwt_required
+from user import SignUp
 
 app = Flask(__name__)
 app.secret_key = '#0#'
@@ -40,5 +41,6 @@ class ItemList(Resource):
 
 api.add_resource(Item,'/items/<string:name>')
 api.add_resource(ItemList,'/items')
+api.add_resource(SignUp,'/signup')
 
 app.run(port=4000,debug=True)
